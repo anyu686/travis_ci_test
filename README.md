@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/anyu686/travis_ci_test.svg?branch=master)](https://travis-ci.com/anyu686/travis_ci_test)
 # DevOps Assessment
 
 This project contains three services:
