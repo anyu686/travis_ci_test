@@ -7,5 +7,5 @@ install:
  - lein 
 script:
  - make libs 
- - make clean all
- - make test 
+ - make test
+ - make clean all 
