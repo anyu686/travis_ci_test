@@ -1,7 +1,10 @@
 language: java
+sudo: required
 install:
  - wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
  - mv lein ~/bin
  - chmod a+x ~/bin/lein
  - lein 
-script: make clean all 
+script:
+ - make libs 
+ -make clean all 
