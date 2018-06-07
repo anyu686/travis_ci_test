@@ -11,6 +11,6 @@ script:
  - make libs 
  - make test
  - make clean all
- - cd dockfiles && docker build -f newsfeedDockerfile -t newsfeed .
+ - cd dockerfiles && docker build -f newsfeedDockerfile -t newsfeed .
  - docker build -f quoteDockerfile -t quote .
  - docker build -f frontendDockerfile -t frontend .
