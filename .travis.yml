@@ -1,5 +1,7 @@
 language: java
 sudo: required
+services:
+  - docker
 install:
  - wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
  - mv lein ~/bin
@@ -8,4 +10,7 @@ install:
 script:
  - make libs 
  - make test
- - make clean all 
+ - make clean all
+ - docker build -f newsfeedDockerfile
+ - docker build -f quoteDockerfile 
+ - docker build -f frontendDockerfile 
