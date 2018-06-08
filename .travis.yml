@@ -2,7 +2,7 @@ language: java
 sudo: required
 services:
   - docker
-stages: build
+stages: build,test
 jobs: 
   include:
     - stage: build 
@@ -19,3 +19,5 @@ jobs:
         - docker build -f newsfeedDockerfile -t newsfeed .
         - docker build -f quoteDockerfile -t quote .
         - docker build -f frontendDockerfile -t frontend .
+    - stage: test
+       script: echo hello
