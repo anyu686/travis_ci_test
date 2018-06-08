@@ -2,15 +2,20 @@ language: java
 sudo: required
 services:
   - docker
-install:
- - wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
- - mv lein ~/bin
- - chmod a+x ~/bin/lein
- - lein 
-script:
- - make libs 
- - make test
- - make clean all
- - cd dockerfiles && docker build -f newsfeedDockerfile -t newsfeed .
- - docker build -f quoteDockerfile -t quote .
- - docker build -f frontendDockerfile -t frontend .
+stages: build
+jobs: 
+  include:
+    - stage: build 
+      script:  
+        - wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+        - mv lein ~/bin
+        - chmod a+x ~/bin/lein
+        - lein 
+        - make libs 
+        - make test
+        - make clean all
+        - mv dockerfiles/* build 
+        - cd build & ls
+        - docker build -f newsfeedDockerfile -t newsfeed .
+        - docker build -f quoteDockerfile -t quote .
+        - docker build -f frontendDockerfile -t frontend .
