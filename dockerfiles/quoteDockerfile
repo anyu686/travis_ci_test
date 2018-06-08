@@ -1,5 +1,5 @@
 FROM java:8
 WORKDIR ./
-ADD build/quotes.jar quotes.jar
+ADD quotes.jar quotes.jar
 CMD java -jar quotes.jar
 
