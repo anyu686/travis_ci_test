@@ -15,7 +15,7 @@ jobs:
         - make test
         - make clean all
         - mv dockerfiles/* build 
-        - cd build & ls
+        - cd build && ls
         - docker build -f newsfeedDockerfile -t newsfeed .
         - docker build -f quoteDockerfile -t quote .
         - docker build -f frontendDockerfile -t frontend .
