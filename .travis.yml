@@ -2,6 +2,9 @@ language: java
 sudo: required
 services:
   - docker
+stages:
+  - build
+  - push_docker_image 
 jobs: 
   include:
     - stage: build 
