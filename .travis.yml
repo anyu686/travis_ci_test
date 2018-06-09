@@ -18,14 +18,10 @@ jobs:
         - make clean all
         - mv dockerfiles/* build 
         - cd build && ls
-        - docker build -f newsfeedDockerfile -t anyu686/ci-test:newsfeed .
-        - docker build -f quoteDockerfile -t anyu686/ci-test:quote .
-        - docker build -f frontendDockerfile -t anyu686/ci-test:frontend .
-#    - stage: push_docker_image
-#      script:
-        - echo $DOCKER_USERNAM 
-        - docker images
+        - docker build -f newsfeedDockerfile -t anyu686/newsfeed .
+        - docker build -f quoteDockerfile -t anyu686/quote .
+        - docker build -f frontendDockerfile -t anyu686/frontend .
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker push anyu686/ci-test:newsfeed
-        - docker push anyu686/ci-test:quote
-        - docker push anyu686/ci-test:frontend
+        - docker push anyu686/newsfeed
+        - docker push anyu686/quote
+        - docker push anyu686/frontend
