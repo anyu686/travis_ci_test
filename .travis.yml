@@ -23,6 +23,8 @@ jobs:
         - docker build -f frontendDockerfile -t anyu686/ci-test:frontend .
     - stage: push_docker_image
       script:
+        - echo $DOCKER_USERNAM 
+        - docker images
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker push anyu686/ci-test:newsfeed
         - docker push anyu686/ci-test:quote
